@@ -12,6 +12,7 @@ const fuse = FuseBox.init({
     homeDir : "src",
     target : 'browser@es6',
     output : "dist/$name.js",
+    useTypescriptCompiler : true,
     plugins : [
       WebIndexPlugin({
         template: "src/index.html"
@@ -26,5 +27,5 @@ const fuse = FuseBox.init({
     ]
 })
 fuse.dev(); // launch http server
-fuse.bundle("app").instructions(" > index.ts").hmr().watch()
+fuse.bundle("app").instructions(" > index.js").hmr().watch()
 fuse.run();

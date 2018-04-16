@@ -17,7 +17,7 @@ function init() {
     return `Startseite`;
 }
 exports.init = init;
-window.customElements.define('file-bag', class extends HTMLElement {
+window.customElements.define('bordgir-startseite', class extends HTMLElement {
     constructor() {
         super();
         var shadowRoot = this.attachShadow({ mode: 'open' });
