@@ -6,14 +6,14 @@ ___scope___.file("index.js", function(exports, require, module, __filename, __di
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./components/startseite/startseite.scss");
-/*let loginButton = document.getElementById('loginButton');
-loginButton.addEventListener ('click', goToLoginPage, false);
-
+function load_home() {
+}
+let loginButton = document.getElementById('login');
+loginButton.addEventListener('click', goToLoginPage, false);
 function goToLoginPage() {
+    document.getElementById("cta").innerHTML = '<object type="text/html" data="home.html" ></object>';
     //location.href = "http://borgdir.media/web/login/index.html";
 }
-
-*/ 
 
 });
 ___scope___.file("components/startseite/startseite.scss", function(exports, require, module, __filename, __dirname){
