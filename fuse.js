@@ -20,7 +20,7 @@ const fuse = FuseBox.init({
     [
       SassPlugin(), 
       CSSResourcePlugin({ 
-          dist: "dist/css-resources"
+          dist: "dist/css"
        }), 
        CSSPlugin()
       ]
