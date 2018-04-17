@@ -4,6 +4,7 @@ import fontawesome from '@fortawesome/fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
 import Flickity from 'flickity';
 import Swiper from 'swiper';
+import login from "./components/login/login.html"
 
 /*let loginButton = document.getElementById('loginButton');
 loginButton.addEventListener ('click', goToLoginPage, false);
