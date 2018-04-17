@@ -1,0 +1,117 @@
+:root {
+    --orange: rgb(255,99,71);
+    --grey: rgba(0,0,0,.5);
+}
+
+html {
+    /* border-box box model allows us to add padding and border to our elements without increasing their size */
+    box-sizing: border-box;
+    /* A system font stack so things load nice and quick! */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: var(--grey);
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+}
+
+/*
+    WAT IS THIS?!
+    We inherit box-sizing: border-box; from our <html> selector
+    Apparently this is a bit better than applying box-sizing: border-box; directly to the * selector
+  */
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 5px 0;
+}
+
+
+/*
+  .container {
+      border: 10px solid #000;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-rows:  
+            1fr;
+      grid-auto-rows: 1fr;
+      grid-auto-flow: row;
+  }
+  */
+
+.grid {
+    display: grid;
+    align-items: center;
+    grid-gap: 10px;
+    grid-template-columns: repeat(12, auto-fit, minmax(0, 1fr));
+    grid-template-areas: 
+    "sd sd hd hd hd hd hd hd hd hd sr sr"
+    "sd sd mn mn mn mn mn mn mn mn sr sr"
+    "sd sd cr cr cr cr cr cr cr cr sr sr"
+    "ft ft ft ft ft ft ft ft ft ft ft ft"
+    ;
+}
+
+.borgdir-logo {
+    font-size: 30px;
+    font-weight: 700;    
+    color: var(--orange);
+    grid-column: 2;
+    text-decoration: none;
+}
+
+
+.navigation-menu {
+    grid-column: hd-10;
+}
+
+.carousel {
+    grid-area: cr;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.cta {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    vertical-align: middle;
+    grid-area: mn;
+    align-self: center;
+    justify-self: center;
+}
+
+.borgdir-button {
+    border: none;
+    padding: .375rem 2rem;
+    margin: 10px;
+    background-color: var(--orange);
+    border-radius: 40px;
+    color:white;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.button-row {
+    padding: 10px;
+}
+
+.navigation-Link {
+    color: var(--grey);
+    text-decoration: none;
+}
