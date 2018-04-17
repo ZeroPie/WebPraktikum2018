@@ -5,9 +5,11 @@ import solid from '@fortawesome/fontawesome-free-solid'
 import Flickity from 'flickity';
 import Swiper from 'swiper';
 
-let loginButton = document.getElementById('loginButton');
+/*let loginButton = document.getElementById('loginButton');
 loginButton.addEventListener ('click', goToLoginPage, false);
 
 function goToLoginPage() {
     //location.href = "http://borgdir.media/web/login/index.html";
 } 
+
+*/
