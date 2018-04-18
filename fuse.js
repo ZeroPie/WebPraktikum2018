@@ -1,31 +1,47 @@
-const {
-    FuseBox,
-    Sparky,
-    SassPlugin,
-    WebIndexPlugin,
-    CSSPlugin,
-    CSSResourcePlugin,
-    QuantumPlugin
-} = require("fuse-box");
+const { FuseBox, Sparky, WebIndexPlugin, QuantumPlugin } = require("fuse-box");
+const { src, task, watch, context, fuse } = require("fuse-box/sparky");
 
-const fuse = FuseBox.init({
-    homeDir : "src",
-    target : 'browser@es6',
-    output : "dist/$name.js",
-    useTypescriptCompiler : true,
-    plugins : [
-      WebIndexPlugin({
-        template: "src/index.html"
-    }),
-    [
-      SassPlugin(), 
-      CSSResourcePlugin({ 
-          dist: "dist/css"
-       }), 
-       CSSPlugin()
-      ]
-    ]
-})
-fuse.dev(); // launch http server
-fuse.bundle("app").instructions(" > index.js").hmr().watch()
-fuse.run();
+
+context(class {
+    getConfig() {
+        return FuseBox.init({
+            homeDir: "src",
+            output: "dist/$name.js",
+            target : "browser@es5",
+            hash: this.isProduction,
+            plugins: [
+                WebIndexPlugin(),
+                this.isProduction && QuantumPlugin({
+                    bakeApiIntoBundle: "app",
+                    uglify: true,
+                    extendServerImport: true
+                })
+            ]
+        })
+    }
+    createBundle(fuse) {
+        const app = fuse.bundle("app");
+        if (!this.isProduction) {
+            app.watch()
+            app.hmr()
+        }
+        app.instructions(">index.ts");
+        return app;
+    }
+});
+
+
+task("default", async context => {
+    const fuse = context.getConfig();
+    fuse.dev();
+    context.createBundle(fuse);
+    await fuse.run();
+});
+
+task("dist", async context => {
+    context.isProduction = true;
+    const fuse = context.getConfig();
+    fuse.dev(); // remove it later
+    context.createBundle(fuse);
+    await fuse.run();
+});

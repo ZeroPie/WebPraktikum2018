@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    "node_modules": "explorerExcludedFiles",
+    ".fusebox/": "explorerExcludedFiles",
+    ".DS_Store": "explorerExcludedFiles"
+  }
+}
