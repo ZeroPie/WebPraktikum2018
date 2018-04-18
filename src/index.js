@@ -2,9 +2,7 @@ import { init } from "./components/startseite/startseite";
 import "./components/startseite/startseite.scss";
 import fontawesome from '@fortawesome/fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
-import Flickity from 'flickity';
-import Swiper from 'swiper';
-
+/*
 async function automaticallyLoadSplitBundle() {
     // this file is automatically associated with the bundle "about"
     // you could do import("about") and get the same result, but typings would go wrong
@@ -16,6 +14,8 @@ async function automaticallyLoadSplitBundle() {
 }
 
 automaticallyLoadSplitBundle();
+*/
+
 
 /*
 let loginButton = document.getElementById('login');

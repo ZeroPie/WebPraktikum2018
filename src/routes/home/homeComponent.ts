@@ -1,5 +1,4 @@
 import * as moment from 'moment';
-
 export class HomeComponent {
     public name: string;
     constructor() {
